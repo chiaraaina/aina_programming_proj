@@ -8,12 +8,7 @@
 #############################################################################################
 library(dplyr)
 library(ggplot2)
-library(tibble)
-library(haven)
-library(sandwich)
-library(magrittr)
 library(readr)
-library(ggpubr)
 library(magrittr)
 
 ## --- Clean workspace --- ##

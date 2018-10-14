@@ -6,13 +6,13 @@
 # 2. calculate pvalue for difference in means
 # 3. create & save jpeg graphs
 #############################################################################################
+install.packages('ggpubr')
+
 library(dplyr)
 library(ggplot2)
-library(haven)
 library(magrittr)
 library(readr)
 library(ggpubr)
-library(magrittr)
 library(grid)
 library(gridExtra)
 
