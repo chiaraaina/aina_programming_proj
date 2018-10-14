@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539445097528.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3230899150",
+    "id" : "96D8CC75",
+    "lastKnownWriteTime" : 1539447623,
+    "last_content_update" : 1539447623312,
+    "path" : "~/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/input/code/response_time.R",
+    "project_path" : "input/code/response_time.R",
+    "properties" : {
+        "cursorPosition" : "43,4",
+        "scrollLine" : "79"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

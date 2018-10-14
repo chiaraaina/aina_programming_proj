@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	makePDF
+	1
+
+[Thu Oct 11 10:56:34 2018]
+rule makePDF:
+    input: input/latex/report.Rmd, input/code/knit.R
+    output: Aina_AdditionalAnalysis.pdf
+    jobid: 0
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/.snakemake/log/2018-10-11T105634.143557.snakemake.log

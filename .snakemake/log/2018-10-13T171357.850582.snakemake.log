@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	cleanData
+	1
+
+[Sat Oct 13 17:13:57 2018]
+rule cleanData:
+    input: input/code/clean_data.R, input/raw-data/fake_data.csv
+    output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 0
+
+    [Sat Oct 13 17:13:58 2018]
+    Error in rule cleanData:
+        jobid: 0
+        output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+
+RuleException:
+CalledProcessError in line 68 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile:
+Command ' set -euo pipefail;  Rscript --no-save --no-restore --verbose input/code/clean_data.R input/raw-data/fake_data.csv output/data/cleaned_data_all.csv output/data/cleaned_data.csv ' returned non-zero exit status 1.
+  File "/home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile", line 68, in __rule_cleanData
+  File "/home/caina/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/.snakemake/log/2018-10-13T171357.850582.snakemake.log

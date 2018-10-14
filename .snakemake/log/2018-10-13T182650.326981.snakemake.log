@@ -1,0 +1,3 @@
+NameError in line 23 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile:
+name 'GRAPH_MEAN' is not defined
+  File "/home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile", line 23, in <module>

@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	cleanData
+	1	makeGraphs
+	2
+
+[Thu Oct 11 10:13:54 2018]
+rule cleanData:
+    input: input/code/clean_data.R, input/raw-data/final_psycho.dta
+    output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 1
+
+[Thu Oct 11 10:13:54 2018]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Thu Oct 11 10:13:54 2018]
+rule makeGraphs:
+    input: input/code/graphs.R, output/data/cleaned_data.csv
+    output: output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg
+    jobid: 0
+
+[Thu Oct 11 10:13:56 2018]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/.snakemake/log/2018-10-11T101354.247461.snakemake.log

@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	allRules
+	1	makePDF
+	2
+
+[Thu Oct 11 12:40:21 2018]
+rule makePDF:
+    input: input/latex/report.Rmd, input/code/knit.R
+    output: input/latex/report.md, Aina_AdditionalAnalysis.pdf
+    jobid: 3
+
+[Thu Oct 11 12:40:24 2018]
+Finished job 3.
+1 of 2 steps (50%) done
+
+[Thu Oct 11 12:40:24 2018]
+localrule allRules:
+    input: input/latex/report.md, Aina_AdditionalAnalysis.pdf, output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg, output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 0
+
+[Thu Oct 11 12:40:24 2018]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/.snakemake/log/2018-10-11T124021.502062.snakemake.log

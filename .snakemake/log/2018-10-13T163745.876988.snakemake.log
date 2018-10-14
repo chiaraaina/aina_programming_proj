@@ -1,0 +1,51 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	allRules
+	1	cleanData
+	1	makeGraphs
+	1	makePDF
+	4
+
+[Sat Oct 13 16:37:45 2018]
+rule cleanData:
+    input: input/code/clean_data.R, input/raw-data/final_psycho.dta
+    output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 3
+
+[Sat Oct 13 16:37:46 2018]
+Finished job 3.
+1 of 4 steps (25%) done
+
+[Sat Oct 13 16:37:46 2018]
+rule makeGraphs:
+    input: input/code/graphs.R, output/data/cleaned_data.csv
+    output: output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg
+    jobid: 2
+
+[Sat Oct 13 16:37:47 2018]
+Finished job 2.
+2 of 4 steps (50%) done
+
+[Sat Oct 13 16:37:47 2018]
+rule makePDF:
+    input: input/latex/report.Rmd, input/code/knit.R
+    output: input/latex/report.md, Aina_AdditionalAnalysis.pdf
+    jobid: 1
+
+[Sat Oct 13 16:37:50 2018]
+Finished job 1.
+3 of 4 steps (75%) done
+
+[Sat Oct 13 16:37:50 2018]
+localrule allRules:
+    input: input/latex/report.md, Aina_AdditionalAnalysis.pdf, output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg, output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 0
+
+[Sat Oct 13 16:37:50 2018]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/.snakemake/log/2018-10-13T163745.876988.snakemake.log

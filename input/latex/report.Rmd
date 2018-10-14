@@ -1,0 +1,304 @@
+---
+title: "Additional Analysis on ``Frustration and Anger in the Ultimatum Game: An Experiment''"
+author: "Chiara Aina"
+date: "October 14, 2018"
+header-includes:
+    \usepackage[utf8]{inputenc}
+    \usepackage{graphicx}
+    \usepackage{setspace,parskip}
+    \usepackage{booktabs}
+    \usepackage{capt-of}
+    \usepackage{subcaption}
+    \newtheorem{prediction}{Prediction}
+    \usepackage{tikz}
+    \usepackage{amsmath,amsthm,amssymb,amstext}
+    \usepackage{amsfonts,latexsym}
+    \usepackage{geometry}
+    \geometry{left=3.0cm,right=3.0cm,top=3.0cm,bottom=3.5cm}
+    \usepackage{lscape}
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+```{r exercise, echo= FALSE, message = FALSE, warning = FALSE }
+library(sandwich)
+library(magrittr)
+library(here)
+library(readr)
+```
+
+
+```{r data,  echo = FALSE, message = FALSE, warning = FALSE }
+
+setwd(here('.'))
+
+df <- read.csv('output/data/cleaned_data.csv')
+
+
+```
+\textbf{Disclaimer:} the data analysis was designed to extend further the working paper Aina, Battigalli \& Gamba (2018). In order not to distribute the original data, this project was run using a dataset with fake data. Hence, comments to the data are omitted.
+
+\section{Experimental Design}
+We study the implications of the theory of frustration and anger in the strategic context of the UMG (Binmore \textit{et al.} 1995), a simple
+binary-choice version of the Ultimatum Game (Guth \textit{et al.} 1982). The game form with material payoffs is represented in Figure \ref{UGM}, where $h>m_{i}>\ell >0$, $i=\mathrm{a},\mathrm{b}$.\footnote{In the classic version, the two players are given an amount of money to
+split, thus it has to be the case that $m_{\mathrm{a}}+m_{\mathrm{b}}=h+\ell $.} In this highly stylized social dilemma the first-mover can either
+propose a default allocation ($d$), whereby both players receive a similar amount of money, or a \textquotedblleft greedy" allocation ($g$). While the
+default allocation is automatically accepted, the second-mover can either accept or reject the greedy offer.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=0.8, transform shape]
+	\tikzstyle{solid node}=[circle,draw,inner sep=1.5,fill=black]
+	\tikzstyle{hollow node}=[circle,draw,inner sep=1.5]
+	\tikzstyle{level 1}=[level distance=1.2cm,sibling distance=2.5cm]
+	\tikzstyle{level 2}=[level distance= 1.2cm,sibling distance= 2.5cm]
+	\node(0)[solid node, label=above:{Player A}]{}
+	child{node[hollow node, label=below:{$(m_{\mathrm{a}}, m_{\mathrm{b}})$}]{} edge from parent node [above left] {$d$}}
+	child{node[solid node, label=right:{Player B}]{}
+		child{node [hollow node, label=below:{$(h,\ell)$}]{} edge from parent node [left] {$y$}}
+		child{node [hollow node, label=below:{$(0,0)$}]{} edge from parent node [right] {$n$}}
+		edge from parent node[above right]{$g$}
+	};
+	\end{tikzpicture}
+	\caption{A Ultimatum Minigame Tree}
+	\label{UGM}
+\end{figure}
+
+\label{ed} We conduct a two-fold manipulation, informed by the analysis of
+player B's behavior strategy reported in the previous section. The
+experimental design was pre-registered on the AsPredicted platform, together
+with the experimental hypotheses and the analysis plan.\footnote{
+The direct link to the pre-registered document is: %
+ \url{http://aspredicted.org/blind.php?x=ij3fg3}.}
+
+\textbf{Payoff manipulation.} With the purpose of increasing player B's
+frustration, we manipulate player B's material payoff from the default
+allocation ($m_b$),
+ while keeping all the other payoffs constant.
+Under some assumptions on player B's initial beliefs, such payoff
+manipulation results in an increase of B's initially expected payoff, and
+thus of his frustration in case of a greedy offer. Indeed, increasing
+$m_{\mathrm{b}}$ increases (ceteris paribus) the gap between his initially
+expected payoff and $l$, the maximal payoff that he can achieve upon
+receiving a greedy offer. Notice that when varying  $m_b$, player
+B's initial beliefs may also change---i.e., beliefs are endogenous to the
+treatment. Therefore, player B's initially expected payoff actually
+increases provided that he believes that the default allocation is not less
+likely when his payoff from this offer is larger.
+
+As player B's best reply does not vary with player A's payoff from the
+default allocation we keep this payoff constant. At the
+same time, we do not alter A's and B's payoff from accepting the greedy
+offer ($h$ and $\ell$) in order to keep constant the effect that inequity
+aversion may have on B's behavior across payoff treatments. Thus, while in a
+payoff treatment B-subjects obtain $m^1_b$ from the default
+allocation, with $m^1_b=m_a$, in the other payoff
+treatment they obtain $m^2_b>m^1_b$.
+
+\textbf{Method of play manipulation.} With the purpose of switching on and
+off player B's experience of frustration, we manipulate the method of play,
+i.e., whether UMG is played with the direct response method ($\text{P}=\text{%
+D}$) or the strategy method ($\text{P}=\text{S}$).
+
+The effect of the method of play has been debated in experimental economics
+for long time (Brandts and Charness 2011). Experimental studies on the
+Ultimatum Game have shown mixed evidence of differences across methods of
+play due to the high potential of the direct response method in triggering
+emotional responses.\footnote{With some common features with our design, Guth \textit{et al.} (2001)
+find that varying the payoff distribution of the outside option affects
+proposers' behavior only in the direct method, while, probably due to the
+few observations, %of the responder's behavior in the direct method,
+they do not find any effect of the method of play on rejections. Brosig and
+Weimann (2003) find that the direct method of play affects the behavior of
+both responders (increased punishments) and proposers (more fair offers) in
+an Ultimatum Game. Finally, Oxoby and McLeish (2004) find that the direct
+method increases rejections of small offers in an Ultimatum Game, despite no
+differences in mean offer levels and acceptance rates.} According to the
+standard theory of decision under uncertainty, the method of play should not
+alter player B's behavior and thus it should not influence the effect of the
+payoff increase, as, in this framework, B's initial expectations are
+irrelevant for his decision. Indeed, for an expected utility maximizer
+strategies that maximize subjective expected utility ex ante are also
+optimal conditional on any information that the decision maker deems
+possible. Even in the case of belief-dependent preferences, as long as
+psychological utility is independent of the agent's own plan, the method of
+play is unimportant, because the traditional dynamic consistency property of
+expected utility theory still holds (see Battigalli and Dufwenberg 2009).
+
+According to BDS theory instead the method of play may affect behavior.
+Indeed, under a psychological perspective, it makes a difference whether
+player B's choice is the action tendency of an emotion that is triggered by
+the appraisal of an event whose occurrence is actually observed, as in the
+direct response method, or only imagined, as in the strategy method.
+When $\text{P}=\text{S}$ player B's behavior
+is invariant to $m_{\mathrm{b}}$ since he cannot experience
+frustration---i.e., the anger component does not bite---and player B's
+decision only depends on his degree of inequity aversion.
+
+
+Obviously, we can in principle admit that player B is to some extent able to
+anticipate the negative emotion that he would experience in case he received
+a greedy offer. Yet, it is rather implausible that this emotion can be so
+strong to trigger an action that makes him forego a private gain for the
+goal of retaliating against player A's hypothetical move. Thus, in the
+strategy method player B's frustration is expected to be at least attenuated
+with respect to the direct method and so it is the effect of the payoff
+increase.
+
+Table \ref{design} summarizes our $2\times2$ design, reporting our four
+treatments and the corresponding labels.
+\begin{table}[htbp]
+\caption{Experimental design}
+\label{design}\centering
+%\begin{tabularx}{\textwidth}{X l l c c }%
+\begin{tabular}{lllcc}
+\hline
+&  &  & \multicolumn{2}{c}{Payoff treatment} \\
+&  &  & $m_{\mathrm{b}}^{1}$ & $m_{\mathrm{b}}^{2}$ \\ \hline
+&  & {Direct response method} & D1 & D2 \\
+Method of play &  &  &  &  \\
+&  & {Strategy method} & S1 & S2 \\ \hline
+\end{tabular}%
+\end{table}
+
+We implement a \emph{between-subjects} design, so that subjects play only
+one of the treatments D1, D2, S1, and S2. Figure \ref{umg_tree} illustrates
+the UMG game form for the two payoff treatments, that differs only for
+player B's payoff from the default allocation, which is 8 in payoff
+treatment $m_{\mathrm{b}}^1$ and 11 in payoff treatment $m_{\mathrm{b}}^2$.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=\textwidth]{input/latex/UMG_2d.PNG}
+\end{center}
+\caption{UMG game form in payoff treatment $m^1_\mathrm{b}$ (left) and $m^2_%
+\mathrm{b}$ (right)}
+\label{umg_tree}
+\end{figure}
+
+Before subjects play the UMG we elicit their first-order beliefs with a
+procedure that we will explain in detail below. In our context, eliciting
+beliefs is particularly important for two reasons. The first is that by
+doing so we can verify whether B-subjects initially expected payoff is
+actually larger in treatment $\mathrm{D2}$ than in treatment $\mathrm{D1}$.
+Secondly, it enhances our understanding of subjects' strategic reasoning.
+
+\subsection{B's Preferences in a Nutshell}
+We denote the initial first-order belief of player B about
+player A choosing the default allocation, i.e., $P_b(d)=\beta$, and B's initial first-order belief about himself
+accepting the greedy offer, i.e., B's planned probability of acceptance
+$P_b(y|g)=\gamma$. According to BDS theory, frustration is anchored in the appraisal of a
+negative event, which is, in this context, the greedy offer. Thus, player B
+can be frustrated and blame player A only after actually observing the
+greedy offer. Notice that, when UMG is played with the direct method (P=D), player B observes the greedy offer before taking his
+decision. Instead, when UMG is played with the strategy method (P=S), player B commits to a decision rule that selects the reply
+conditionally on the \emph{hypothesized} greedy offer, hence he cannot be
+frustrated. Therefore, while in the strategy method frustration is equal to
+zero, in the direct method it is the gap between player B's expected payoff
+at the root of the game---determined by his beliefs---and the
+maximal payoff that he can achieve after the greedy offer:
+
+\begin{equation}  \label{frustration}
+F^{\mathrm{P},m_{\mathrm{b}}}\left( \beta ,\gamma \right) =\left \{
+\begin{tabular}{ll}
+$\max \left \{ 0,\beta m_{\mathrm{b}}+\left( 1-\beta \right) \gamma \ell
+-\ell \right \} $ & if \textrm{P}$=$\textrm{D} \\
+$0$ & if \textrm{P}$=$\textrm{S}.%
+\end{tabular}%
+\right.
+\end{equation}
+
+Next, we specify B's belief-dependent psychological utility of replying with
+action $a_b$ to the greedy offer $g$ as
+%as a function of his choice when A chooses the greedy offer. It is sufficient to consider this case only because in the strategy method B's choices is immaterial when A chooses the default allocation, while in the direct method B chooses only upon observing the greedy offer. The general formula is:
+\begin{multline}  \label{utility}
+u_{\mathrm{b}}^{\mathrm{P},m_{\mathrm{b}}}\left( g,a_{\mathrm{b}};\beta
+,\gamma \right) = \pi _{\mathrm{b}}\left( g,a_{\mathrm{b}}\right) -\pi _{%
+\mathrm{a}}\left( g,a_{\mathrm{b}}\right) \theta F^{\mathrm{P},m_{\mathrm{b}%
+}}\left( \beta ,\gamma \right) - \\
+\delta \max \left \{ 0,\pi _{\mathrm{a}}\left( g,a_{\mathrm{b}}\right) -\pi
+_{\mathrm{b}}\left( g,a_{\mathrm{b}}\right) \right \},
+\end{multline}
+where $\pi_i(g,a_b)$, $i=a,b$, is the monetary payoff of player $i$ after the greedy offer and B's choice $a_b$, $(\theta,\delta)$ are B's personal
+traits which measure his sensitivity to anger and his inequity-aversion, that is the distributive component of his preferences.
+
+
+\section{Some Results}
+In this section, we report the frequency of default allocation and acceptance of the greedy offer in the different treatments. In each graph, the pvalues for the difference in means by a Mann-Whitney U test are shown comparing: (i) the payoff treatment effect  in the Strategy method, (ii) the payoff treatment effect in the Direct method, and (iii) the method of play effect. Moreover, results by gender are illustrated.
+
+\subsubsection{B-subjects}
+Figure \ref{fig:histo_behavior_B} illustrates the share of B-subjects accepting the greedy offer by treatment.
+\begin{figure}[h!]
+\caption{B-subjects' behavior, by treatment}
+\label{fig:histo_behavior_B}\centering
+\includegraphics[scale=0.25]{output/graphs/accept_mean.jpeg}
+\end{figure}
+\begin{figure}
+\caption{B-subjects' behavior, by gender}
+\label{fig:behavior_B_gender}%%
+\centering
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.2]{output/graphs/f_accept_mean.jpeg}
+\caption*{Females}
+\end{minipage}
+\hspace{0.2cm}
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.2]{output/graphs/m_accept_mean.jpeg}
+\caption*{Males}
+\end{minipage}
+\end{figure}
+
+\newpage
+\subsubsection{A-subjects}
+Figure \ref{fig:histo_behavior_A} illustrates the share of A-subjects choosing the default allocation.
+\begin{figure}[h!]
+\caption{A-subjects' behavior, by treatment}
+\label{fig:histo_behavior_A}\centering
+\includegraphics[scale=0.25]{output/graphs/offer_mean.jpeg}
+\end{figure}
+
+\begin{figure}[htbtp]
+\caption{A-subjects' behavior, by gender}
+\label{fig:behavior_A_gender}%%
+\centering
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.2]{output/graphs/f_offer_mean.jpeg}
+\caption*{Females}
+\end{minipage}
+\hspace{0.2cm}
+\begin{minipage}[b]{0.48\linewidth}
+\centering
+\includegraphics[scale=0.2]{output/graphs/m_offer_mean.jpeg}
+\caption*{Males}
+\end{minipage}
+\end{figure}
+
+\newpage
+\section{Response Time}
+Longer response time are considered good evidence for harder choices. With the following graphs, we want to show that expectations---and frustration---make the choice of accepting the greedy offer harder. Indeed, the higher the expectations,\footnote{The initial expectations are calculated using the subject's belief on receiving the default allocation and, assuming intrapersonal equilibrium, assigning the choice made to his initial plan.} and thus frustration, the lower B's utility of accepting the greedy offer, i.e., he is closer to indifference. Moreover, according to BDS's theoy, this should be the case only in the choices taken playing in the Direct method and not in the Strategy method. This is a new measure to reveal the importance of belief-dependent preferences.
+
+
+Given the pattern of out results on gender in the paper, we report the average response time in second for all B-subjects and then the splitted sample of males and females. In each figure, it is reported the pvalue of a Pearson correlation test.
+\newpage
+\begin{landscape}
+\begin{figure}[h!]
+\centering
+\caption{Effect of Initial Expectation on Response Time}
+\includegraphics[scale=0.6]{output/graphs/expectations.jpeg}
+\end{figure}
+\end{landscape}
+
+\newpage
+\begin{landscape}
+\begin{figure}[h!]
+\caption{Effect of Frustration on Response Time}
+\centering
+\includegraphics[scale=0.6]{output/graphs/frustration.jpeg}
+\end{figure}
+\end{landscape}

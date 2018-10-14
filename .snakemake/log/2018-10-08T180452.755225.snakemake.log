@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 30 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/Snakefile:
+Missing input files for rule clean_data:
+input/codeclean_data.R
+input/raw-datafinal_psycho.dta

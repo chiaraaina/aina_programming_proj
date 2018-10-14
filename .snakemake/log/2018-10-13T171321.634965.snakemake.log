@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	fakeData
+	1
+
+[Sat Oct 13 17:13:21 2018]
+rule fakeData:
+    input: input/code/fake_data.R, input/raw-data/final_psycho.dta
+    output: input/raw-data/fake_data.csv
+    jobid: 0
+
+[Sat Oct 13 17:13:22 2018]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/.snakemake/log/2018-10-13T171321.634965.snakemake.log

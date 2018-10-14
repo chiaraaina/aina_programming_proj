@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	clean_data
+	1
+
+[Mon Oct  8 18:07:04 2018]
+rule clean_data:
+    input: input/code/clean_data.R, input/raw-data/final_psycho.dta
+    output: output/data/cleaned_data_snakemake.csv
+    jobid: 0
+
+    [Mon Oct  8 18:07:04 2018]
+    Error in rule clean_data:
+        jobid: 0
+        output: output/data/cleaned_data_snakemake.csv
+
+RuleException:
+CalledProcessError in line 37 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/Snakefile:
+Command ' set -euo pipefail;  Rscript --no-save --no-restore --verbose input/code/clean_data.R input/raw-data/final_psycho.dta output/data/cleaned_data_snakemake.csv ' returned non-zero exit status 1.
+  File "/home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/Snakefile", line 37, in __rule_clean_data
+  File "/home/caina/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/.snakemake/log/2018-10-08T180704.420485.snakemake.log

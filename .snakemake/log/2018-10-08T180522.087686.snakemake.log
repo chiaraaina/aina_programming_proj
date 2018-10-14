@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	clean_data
+	1
+
+[Mon Oct  8 18:05:22 2018]
+rule clean_data:
+    input: input/code/clean_data.R, input/raw-data/final_psycho.dta
+    output: output/data/cleaned_data_snakemake.csv
+    jobid: 0
+
+RuleException in line 30 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/Snakefile:
+NameError: The name 'run R' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	cleanData
+	1
+
+[Tue Oct  9 18:53:33 2018]
+rule cleanData:
+    input: input/code/clean_data.R, input/raw-data/final_psycho.dta
+    output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 0
+
+RuleException in line 31 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/anger_project/Snakefile:
+NameError: The name "outputut_data']+'cleaned_data" is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

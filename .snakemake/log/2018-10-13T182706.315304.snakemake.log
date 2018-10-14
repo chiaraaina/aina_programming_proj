@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 38 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile:
+Missing input files for rule makePDF:
+output/graphs/['accept_mean', 'f_accept_mean', 'm_accept_mean', 'offer_mean', 'f_offer_mean', 'm_offer_mean'].jpeg
+output/graphs/['frustration', 'expectations'].jpeg

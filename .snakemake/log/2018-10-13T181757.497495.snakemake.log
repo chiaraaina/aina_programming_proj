@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	responseTime
+	1
+
+[Sat Oct 13 18:17:57 2018]
+rule responseTime:
+    input: input/code/response_time.R, output/data/cleaned_data.csv
+    output: output/graphs/frustration.jpeg, output/graphs/expectations.jpeg
+    jobid: 0
+
+    [Sat Oct 13 18:18:01 2018]
+    Error in rule responseTime:
+        jobid: 0
+        output: output/graphs/frustration.jpeg, output/graphs/expectations.jpeg
+
+RuleException:
+CalledProcessError in line 58 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile:
+Command ' set -euo pipefail;  Rscript --no-save --no-restore --verbose input/code/response_time.R output/data/cleaned_data.csv output/graphs/ ' returned non-zero exit status 1.
+  File "/home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile", line 58, in __rule_responseTime
+  File "/home/caina/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job responseTime since they might be corrupted:
+output/graphs/frustration.jpeg, output/graphs/expectations.jpeg
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/.snakemake/log/2018-10-13T181757.497495.snakemake.log

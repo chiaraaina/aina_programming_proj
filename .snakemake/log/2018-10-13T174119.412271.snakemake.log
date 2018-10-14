@@ -1,0 +1,3 @@
+NameError in line 31 of /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile:
+name 'GRAPHS' is not defined
+  File "/home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/Snakefile", line 31, in <module>

@@ -1,0 +1,40 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	allRules
+	1	cleanData
+	1	makeGraphs
+	3
+
+[Sat Oct 13 17:15:42 2018]
+rule cleanData:
+    input: input/code/clean_data.R, input/raw-data/fake_data.csv
+    output: output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 2
+
+[Sat Oct 13 17:15:42 2018]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Sat Oct 13 17:15:42 2018]
+rule makeGraphs:
+    input: input/code/graphs.R, output/data/cleaned_data.csv
+    output: output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg
+    jobid: 1
+
+[Sat Oct 13 17:15:43 2018]
+Finished job 1.
+2 of 3 steps (67%) done
+
+[Sat Oct 13 17:15:43 2018]
+localrule allRules:
+    input: input/latex/report.md, Aina_AdditionalAnalysis.pdf, output/graphs/accept_mean.jpeg, output/graphs/f_accept_mean.jpeg, output/graphs/m_accept_mean.jpeg, output/graphs/offer_mean.jpeg, output/graphs/f_offer_mean.jpeg, output/graphs/m_offer_mean.jpeg, output/data/cleaned_data_all.csv, output/data/cleaned_data.csv
+    jobid: 0
+
+[Sat Oct 13 17:15:43 2018]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /home/caina/Dropbox/UNI/PhD/2YEAR/Programming/aina_project/.snakemake/log/2018-10-13T171542.223693.snakemake.log

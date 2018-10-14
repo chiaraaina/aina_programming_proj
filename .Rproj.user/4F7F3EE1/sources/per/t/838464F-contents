@@ -1,0 +1,86 @@
+---
+title: "Additional Analysis on ``Frustration and Anger in the Ultimatum Game: An Experiment''"
+author: "Chiara Aina"
+date: "October 14, 2018"
+header-includes:
+    \usepackage[utf8]{inputenc}
+    \usepackage{graphicx}
+    \usepackage{setspace,parskip}
+    \usepackage{booktabs}
+    \usepackage{capt-of}
+    \usepackage{subcaption}
+    \newtheorem{prediction}{Prediction}
+    \usepackage{tikz}
+    \usepackage{amsmath,amsthm,amssymb,amstext}
+    \usepackage{amsfonts,latexsym}
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+```{r exercise, echo= FALSE, message = FALSE, warning = FALSE }
+library(AER)
+library(ivpack)
+library(dplyr)
+library(ggplot2)
+library(tibble)
+library(haven)
+library(stargazer)
+library(sandwich)
+library(magrittr)
+library(multiwayvcov)
+library(here)
+library(readr)
+```
+\paragraph{Disclaimer:} the data analysis was designed to extend further the working paper Aina, Battigalli \& Gamba (2018). In order not to distribute the original data, this project was run using a dataset with fake data.
+
+\section{Experimental Design}
+We study the implications of the theory of frustration and anger in the
+strategic context of the UMG (Binmore \textit{et al.} 1995), a simple
+binary-choice version of the Ultimatum Game (G{\"{u}}th \textit{et al.}
+1982). The game form with material payoffs is represented in Figure \ref{fig:UGM}%
+, where $h>m_{i}>\ell >0$, $i=\mathrm{a},\mathrm{b}$.\footnote{%
+In the classic version, the two players are given an amount of money to
+split, thus it has to be the case that $m_{\mathrm{a}}+m_{\mathrm{b}}=h+\ell
+$.} In this highly stylized social dilemma the first-mover can either
+propose a default allocation ($d$), whereby both players receive a similar
+amount of money, or a \textquotedblleft greedy" allocation ($g$). While the
+default allocation is automatically accepted, the second-mover can either
+accept or reject the greedy offer.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[scale=0.8, transform shape]
+	\tikzstyle{solid node}=[circle,draw,inner sep=1.5,fill=black]
+	\tikzstyle{hollow node}=[circle,draw,inner sep=1.5]
+	\tikzstyle{level 1}=[level distance=1.2cm,sibling distance=2.5cm]
+	\tikzstyle{level 2}=[level distance= 1.2cm,sibling distance= 2.5cm]
+	\node(0)[solid node, label=above:{Player A}]{}
+	child{node[hollow node, label=below:{$(m_{\mathrm{a}}, m_{\mathrm{b}})$}]{} edge from parent node [above left] {$d$}}
+	child{node[solid node, label=right:{Player B}]{}
+		child{node [hollow node, label=below:{$(h,\ell)$}]{} edge from parent node [left] {$y$}}
+		child{node [hollow node, label=below:{$(0,0)$}]{} edge from parent node [right] {$n$}}
+		edge from parent node[above right]{$g$}
+	};
+	\end{tikzpicture}
+	\caption{A Ultimatum Minigame Tree}
+	\label{fig:UGM}
+\end{figure}
+
+
+
+
+
+
+
+
+```{r data,  echo = FALSE, message = FALSE, warning = FALSE }
+
+setwd(here('.'))
+
+df <- read.csv('output/data/cleaned_data.csv')
+
+
+```
