@@ -1,16 +1,0 @@
-bash: /home/caina/anaconda3/bin:/home/caina/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home:bin/msys-ssh-1000-18: No such file or directory
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(foreign)
-bash: syntax error near unexpected token `foreign'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(dplyr)
-bash: syntax error near unexpected token `dplyr'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(ggplot2)
-bash: syntax error near unexpected token `ggplot2'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(tibble)
-bash: syntax error near unexpected token `tibble'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(magrittr)
-bash: syntax error near unexpected token `magrittr'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(multiwayvcov)
-bash: syntax error near unexpected token `multiwayvcov'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ library(stargazer)
-bash: syntax error near unexpected token `stargazer'
-]0;/home/caina/pp4rs/R/anger_project]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ [K]0;caina@EconDR051Ubuntu: ~/pp4rs/R/anger_project[01;32mcaina@EconDR051Ubuntu[00m:[01;34m~/pp4rs/R/anger_project[00m$ 
